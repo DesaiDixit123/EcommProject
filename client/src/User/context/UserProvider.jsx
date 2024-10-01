@@ -9,7 +9,7 @@ export const UserProvider = createContext();
 
 export default function UserContext({ children }) {
   const dispatch = useDispatch();
-  // const { userData } = useSelector((state) => state.UserSliceProvider);
+  const { userData } = useSelector((state) => state.UserSliceProvider);
   useEffect( () => {
     dispatch(getAllUsersFetchApi());
   }, []);
@@ -20,12 +20,10 @@ export default function UserContext({ children }) {
 
 
 
-  useEffect(() => {
-  // dispatch(getCartByUserId(userData._id))
-},[dispatch])
+
   // console.log(userData);
 
   return (
-    <UserProvider.Provider value={""}>{children}</UserProvider.Provider>
+    <UserProvider.Provider value={userData}>{children}</UserProvider.Provider>
   );
 }
