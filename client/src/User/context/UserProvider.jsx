@@ -10,7 +10,7 @@ export const UserProvider = createContext();
 export default function UserContext({ children }) {
   const dispatch = useDispatch();
   // const { userData } = useSelector((state) => state.UserSliceProvider);
-  useEffect(() => {
+  useEffect( () => {
     dispatch(getAllUsersFetchApi());
   }, []);
 
